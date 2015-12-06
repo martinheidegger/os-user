@@ -27,6 +27,7 @@ if (process.platform === 'win32') {
     delete process.env.USER
     require.cache = {}
     exec('whoami', function (err, whoamiresponse) {
+      t.equal(err, null)
       require('..')(function (err, user) {
         t.equal(err, null)
         t.equal(user, whoamiresponse.trim())
