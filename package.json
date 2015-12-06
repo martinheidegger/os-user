@@ -1,0 +1,30 @@
+{
+  "name": "os-user",
+  "version": "1.0.0",
+  "description": "Platform aware tool to get the currently logged-in user evaluated using environment variables.",
+  "main": "os-user.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "standard && tap test/*.js"
+  },
+  "keywords": [
+    "os",
+    "environment",
+    "env",
+    "user"
+  ],
+  "author": "Martin Heidegger <martin.heidegger@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:martinheidegger/os-user.git"
+  },
+  "bugs": {
+    "url": "https://github.com/martinheidegger/os-user/issues"
+  },
+  "homepage": "https://github.com/martinheidegger/os-user",
+  "devDependencies": {
+    "standard": "^5.4.1",
+    "tap": "^2.3.1"
+  }
+}
