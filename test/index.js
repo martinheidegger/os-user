@@ -1,6 +1,6 @@
 'use strict'
 var tap = require('tap')
-var execSync = require('child_process').execSync
+var exec = require('child_process').exec
 
 if (process.platform === 'win32') {
   tap.test('basic windows test', function (t) {
@@ -23,13 +23,15 @@ if (process.platform === 'win32') {
     })
   })
 
-  tap.test('fallback windows test', function (t) {
+  tap.test('fallback unix test', function (t) {
     delete process.env.USER
     require.cache = {}
-    require('..')(function (err, user) {
-      t.equal(err, null)
-      t.equal(user, execSync('whoami').toString().trim())
-      t.end()
+    exec('whoami', function (err, whoamiresponse) {
+      require('..')(function (err, user) {
+        t.equal(err, null)
+        t.equal(user, whoamiresponse.trim())
+        t.end()
+      })
     })
   })
 }
