@@ -1,6 +1,6 @@
 {
   "name": "os-user",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Platform aware tool to get the currently logged-in user evaluated using environment variables and falls back to whoami.",
   "main": "os-user.js",
   "scripts": {
