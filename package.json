@@ -1,7 +1,7 @@
 {
   "name": "os-user",
   "version": "1.0.0",
-  "description": "Platform aware tool to get the currently logged-in user evaluated using environment variables.",
+  "description": "Platform aware tool to get the currently logged-in user evaluated using environment variables and falls back to whoami.",
   "main": "os-user.js",
   "scripts": {
     "lint": "standard",
@@ -26,5 +26,8 @@
   "devDependencies": {
     "standard": "^5.4.1",
     "tap": "^2.3.1"
+  },
+  "dependencies": {
+    "exec-fallback": "^1.0.1"
   }
 }

@@ -4,7 +4,7 @@ Simple [node.js](https://nodejs.org/) util that returns the user currently runni
 
 On windows this util is aware of the domain using the `USERDOMAIN` and `USERNAME` variable.
 
-On other systems it uses the `USER` environment variable.
+On other systems it uses the `USER` environment variable. If the `USER` is not given or empty on other systems it will fallback to `whoami`.
 
 # Usage 
 
@@ -18,11 +18,15 @@ and use it with:
 
 ```JavaScript
 var user = require('os-user')
-console.log(user())
+user(function (err, usr) {
+    console.log(usr)
+})
 ```
+
+cheers.
 
 # License
 
 [ISC](https://en.wikipedia.org/wiki/ISC_license)
 
-extracted from [osenv](https://github.com/npm/osenv)
+first version extracted from [osenv](https://github.com/npm/osenv)
