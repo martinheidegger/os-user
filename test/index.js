@@ -1,12 +1,13 @@
 'use strict'
 var tap = require('tap')
 var exec = require('child_process').exec
+var user = require('..')
 
 if (process.platform === 'win32') {
   tap.test('basic windows test', function (t) {
     process.env.USERDOMAIN = 'knights'
     process.env.USERNAME = 'sirUser'
-    require('..')(function (err, user) {
+    user(function (err, user) {
       t.equal(err, null)
       t.equal(user, 'knights//sirUser')
       t.end()
@@ -16,7 +17,7 @@ if (process.platform === 'win32') {
 } else {
   tap.test('basic unix test', function (t) {
     process.env.USER = 'sirUser'
-    require('..')(function (err, user) {
+    user(function (err, user) {
       t.equal(err, null)
       t.equal(user, 'sirUser')
       t.end()
@@ -25,10 +26,10 @@ if (process.platform === 'win32') {
 
   tap.test('fallback unix test', function (t) {
     delete process.env.USER
-    require.cache = {}
     exec('whoami', function (err, whoamiresponse) {
       t.equal(err, null)
-      require('..')(function (err, user) {
+      user.invalidate()
+      user(function (err, user) {
         t.equal(err, null)
         t.equal(user, whoamiresponse.trim())
         t.end()

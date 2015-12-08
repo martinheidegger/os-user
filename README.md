@@ -23,9 +23,18 @@ user(function (err, usr) {
 })
 ```
 
+
 cheers.
 
-# License
+## Caching & Invalidation
+
+By default the user is cached for 10 minutes it is possible to invalidate the cache using:
+
+```JavaScript
+user.invalidate()
+```
+
+## License
 
 [ISC](https://en.wikipedia.org/wiki/ISC_license)
 
