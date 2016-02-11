@@ -28,6 +28,6 @@
     "tap": "^5.4.3"
   },
   "dependencies": {
-    "exec-fallback": "^1.2.1"
+    "exec-fallback": "^1.2.2"
   }
 }
